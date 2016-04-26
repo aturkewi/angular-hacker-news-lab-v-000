@@ -6,4 +6,8 @@ angular
       url: '/top',
       templateUrl: 'views/top.html'
     })
+    .state('post', {
+      url: '/post/:id',
+      templateUrl: 'views/post.html'
+    })
   })

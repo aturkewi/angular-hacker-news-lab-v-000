@@ -6,7 +6,7 @@ function TopStories(){
         'These are my stories:',
         '<ul>',
           '<li ng-repeat="story in topStories.stories">',
-            '{{story}}',
+            '<a href="#/post/{{story}}">{{story}}</a>',
           '</li>',
         '</ul>',
       '</div>'
