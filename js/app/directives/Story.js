@@ -12,6 +12,6 @@ function Story(){
   }
 }
 
-// angular
-//   .module('app',[])
-//   .directive('story', Story)
+angular
+  .module('app')
+  .directive('story', Story)
