@@ -3,7 +3,6 @@ function TopStories(HackerNewsAPI){
     scope:{},
     template:[
       '<div class="top-stories">',
-        'These are my stories:',
         '<ul>',
           '<li ng-repeat="story in topStories.topStories">',
             '<a href="#/post/{{story.id}}">{{story.title}}</a>',
@@ -28,8 +27,6 @@ function TopStories(HackerNewsAPI){
     }
   }
 }
-
-// TopStories.$inject = ['hackerNewsAPI']
 
 angular
   .module('app')
