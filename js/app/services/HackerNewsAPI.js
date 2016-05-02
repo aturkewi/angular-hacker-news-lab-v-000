@@ -8,7 +8,7 @@ function HackerNewsAPI($http) {
     var topStories = [];
     self.getTopStoryIds().then(function(res){
       var topStoryIds = res.data.slice(0,30);
-      for (var i=0; i < 30; i++) {
+      for (var i=0; i < 4; i++) {
         self.getItem(topStoryIds[i]).then(function(res){
           debugger;
           topStories.push(res.data);

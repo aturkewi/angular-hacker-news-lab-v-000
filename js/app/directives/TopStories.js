@@ -5,8 +5,9 @@ function TopStories(HackerNewsAPI){
       '<div class="top-stories">',
         'These are my stories:',
         '<ul>',
-          '<li ng-repeat="story in topStories.stories">',
-            '<a href="#/post/{{story}}">{{story}}</a>',
+          '<li ng-repeat="story in topStories.topStories">',
+            '<a href="#/post/{{story.id}}">{{story.title}}</a>',
+            'by: {{story.by}}',
           '</li>',
         '</ul>',
       '</div>'
@@ -14,19 +15,16 @@ function TopStories(HackerNewsAPI){
     controllerAs: 'topStories',
     controller: function(){
       var self = this;
-      // this.stories = [];
-      // HackerNewsAPI.getTopStoryIds()
-      //   .then(function(res){
-      //     self.topStoryIds = res.data.slice(0,30)
-      //   })
-    },
-    link: function (scope, element, attrs, controller) {
-      HackerNewsAPI.getTopStories()
-      
-        // .then(function(res){
-        //   controller.topStoryIds = res.data.slice(0,30)
-        //   debugger;
-        // })
+      self.topStories = [];
+      HackerNewsAPI.getTopStoryIds().then(function(res){
+        var topStoryIds = res.data.slice(0,30);
+        for (var i=0; i < 30; i++) {
+          HackerNewsAPI.getItem(topStoryIds[i]).then(function(res){
+            // debugger;
+            self.topStories.push(res.data);
+          });
+        };
+      });
     }
   }
 }
