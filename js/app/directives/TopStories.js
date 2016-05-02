@@ -1,4 +1,4 @@
-function TopStories(){
+function TopStories(HackerNewsAPI){
   return{
     scope:{},
     template:[
@@ -13,10 +13,25 @@ function TopStories(){
     ].join(''),
     controllerAs: 'topStories',
     controller: function(){
-      this.stories = [11543083,11543258,11544016,11542005,11544686];
+      var self = this;
+      // this.stories = [];
+      // HackerNewsAPI.getTopStoryIds()
+      //   .then(function(res){
+      //     self.topStoryIds = res.data.slice(0,30)
+      //   })
+    },
+    link: function (scope, element, attrs, controller) {
+      HackerNewsAPI.getTopStories()
+      
+        // .then(function(res){
+        //   controller.topStoryIds = res.data.slice(0,30)
+        //   debugger;
+        // })
     }
   }
 }
+
+// TopStories.$inject = ['hackerNewsAPI']
 
 angular
   .module('app')
