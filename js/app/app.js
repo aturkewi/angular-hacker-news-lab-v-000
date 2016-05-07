@@ -8,6 +8,12 @@ angular
     })
     .state('post', {
       url: '/post/:id',
-      templateUrl: 'views/post.html'
+      templateUrl: 'views/post.html',
+      controller: "StoryController as story",
+      resolve: {
+        story: function($stateProvider, HackerNewsAPI){
+          return HackerNewsAPI.get($stateProvider.id)
+        }
+      }
     })
   })

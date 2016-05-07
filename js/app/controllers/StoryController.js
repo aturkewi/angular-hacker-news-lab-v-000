@@ -1,5 +1,6 @@
 function StoryController(){
-  this.story = "some data"
+  this.data = story.data;
+  debugger;
 }
 
 angular
