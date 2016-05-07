@@ -3,6 +3,7 @@ function Story(){
     // scope:{},
     template:[
       '<div class="some_class">',
+        'This is my story directive',
       '</div>'
     ].join(''),
     controllerAs: 'story',
