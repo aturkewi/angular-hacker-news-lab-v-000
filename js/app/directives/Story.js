@@ -1,15 +1,15 @@
 function Story(){
   return{
-    // scope:{},
+    scope:{
+      targetStory: '='
+    },
     template:[
       '<div class="some_class">',
         'This is my story directive',
+        '<br>',
+        'Title: {{targetStory.title}}',
       '</div>'
-    ].join(''),
-    controllerAs: 'story',
-    controller: function(){
-
-    }
+    ].join('')
   }
 }
 

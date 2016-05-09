@@ -1,6 +1,6 @@
-function StoryController(){
-  this.data = story.data;
-  debugger;
+function StoryController(article){
+  // debugger;
+  this.storyData = article.data
 }
 
 angular

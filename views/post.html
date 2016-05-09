@@ -1,6 +1,5 @@
 Check out THIS story!
-
-<dvi ng-controller="StoryController as storyScope">
-  {{storyScope.story}}
-  <story></story>
-</div>
+<br>
+Title from controller: {{storyController.storyData.title}}
+<hr>
+<story targetStory="storyController.storyData"></story>
