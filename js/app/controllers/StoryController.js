@@ -1,6 +1,6 @@
-function StoryController(article){
+function StoryController($scope, article){
   // debugger;
-  this.storyData = article.data
+  $scope.storyData = article.data
 }
 
 angular
