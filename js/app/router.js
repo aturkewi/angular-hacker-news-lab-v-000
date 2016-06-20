@@ -6,13 +6,13 @@ function Router($stateProvider){
   })
   .state('post', {
     url: '/post/:id',
-    templateUrl: 'views/post.html',
-    controller: "StoryController as storyController",
-    resolve: {
-      article: function($stateParams, $http){
-        return $http.get('https://hacker-news.firebaseio.com/v0/item/'+$stateParams.id+'.json')
-      }
-    }
+    templateUrl: 'views/post.html'
+    // controller: "StoryController as storyController"
+    // resolve: {
+    //   article: function($stateParams, $http){
+    //     return $http.get('https://hacker-news.firebaseio.com/v0/item/'+$stateParams.id+'.json')
+    //   }
+  // }
   })
 }
 
