@@ -6,18 +6,22 @@ function Story(location, HackerNewsAPI){
         '<br>',
         // '{{var foo = "testing";}}',
         '<br>',
-        'Title: {{myStory.title}}',
+        'Title: {{storyController.myStory.title}}',
         '<br>',
         // 'Test: {{foo}}',
       '</div>'
     ].join(''),
     controllerAs: 'storyController',
-    controller: function(){
+    controller: function(HackerNewsAPI){
       storyId = location.$$path.split('/')[2];
-      debugger;
+      var myStory;
+      HackerNewsAPI.getItem(storyId).then(function(data){
+        myStory = data.data;
+        debugger;
+      });
     },
     link: function(){
-      console.log(myStory)
+      // console.log(myStory)
     }
   }
 }
