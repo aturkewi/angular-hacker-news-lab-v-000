@@ -4,24 +4,21 @@ function Story(location, HackerNewsAPI){
       '<div class="some_class">',
         'This is my story directive',
         '<br>',
-        // '{{var foo = "testing";}}',
         '<br>',
         'Title: {{storyController.myStory.title}}',
         '<br>',
-        // 'Test: {{foo}}',
       '</div>'
     ].join(''),
     controllerAs: 'storyController',
     controller: function(HackerNewsAPI){
+      storyController = this;
       storyId = location.$$path.split('/')[2];
-      var myStory;
-      HackerNewsAPI.getItem(storyId).then(function(data){
-        myStory = data.data;
-        debugger;
-      });
+      storyPromise = HackerNewsAPI.getItem(storyId);
     },
     link: function(){
-      // console.log(myStory)
+      this.storyPromise.then(function(data){
+        storyController.myStory = data.data;
+      })
     }
   }
 }
